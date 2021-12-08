@@ -35,7 +35,7 @@ class _CFHomePageState extends State<CFHomePage> {
       });
     });
   }
-  
+
   @override
   Widget build(BuildContext context) {
     /*
@@ -88,5 +88,3 @@ class _CFHomePageState extends State<CFHomePage> {
     _controller.dispose();
   }
 }
-
-

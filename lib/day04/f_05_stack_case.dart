@@ -42,25 +42,43 @@ class _CFHomeContentState extends State<CFHomeContent> {
   @override
   Widget build(BuildContext context) {
 
+
     final kScreenWidth = MediaQuery.of(context).size.width;///当前屏幕宽度
     final kScreenHeight = MediaQuery.of(context).size.height;///当前屏幕高度
     print("当前屏幕宽: $kScreenWidth,高度: $kScreenHeight");
 
-    return RowDemo2();
+    return const RowDemo2();
   }
 }
 
 ///拓展
-class RowDemo2 extends StatelessWidget {
+class RowDemo2 extends StatefulWidget {
   const RowDemo2({
     Key? key,
   }) : super(key: key);
 
+
+
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return RowDemo2State();
+  }
+
+}
+
+class RowDemo2State extends State<RowDemo2> {
+
+  bool _isFavor = false;
+
   @override
   Widget build(BuildContext context) {
+
+    final kScreenWidth = MediaQuery.of(context).size.width;///当前屏幕宽度
+
     return Stack(
       children: <Widget>[
-        Image.asset('assets/images/7.jpg',),
+        Image.asset('assets/images/7.jpg',fit: BoxFit.fill,width: kScreenWidth,),
         Positioned(
           left: 0,
           right: 0,
@@ -75,12 +93,14 @@ class RowDemo2 extends StatelessWidget {
               children: <Widget>[
                 const Text('宁静的早晨',style: TextStyle(color: Colors.white, fontSize: 20),),
                 GestureDetector(
-                  child: const Icon(
+                  child: Icon(
                     Icons.favorite,
-                    color: Colors.white,
+                    color: _isFavor ? Colors.red : Colors.white,
                   ),
-                  onTap: () {
-                    print("收藏");
+                  onTap: () {//点击事件
+                    setState(() {
+                      _isFavor = !_isFavor;
+                    });
                   },
                 ),
               ],
@@ -90,6 +110,7 @@ class RowDemo2 extends StatelessWidget {
       ],
     );
   }
+
 }
 
 class StackDemo1 extends StatelessWidget {
