@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:learn_flutter/douban/model/home_model.dart';
+import 'package:learn_flutter/douban/pages/home/home_movie_item.dart';
 import 'package:learn_flutter/service/request/home_request.dart';
 
 class CFHomeContent extends StatefulWidget {
@@ -28,24 +29,22 @@ class _CFHomeContentState extends State<CFHomeContent> {
     // });
     // HomeRequest.getMovieList();
 
-    final rootBundle = DefaultAssetBundle.of(context);
-    rootBundle.loadString('assets/data/home.json').then((value) {
+    DefaultAssetBundle.of(context).loadString('assets/data/home.json').then((value) {
       final subjects = json.decode(value);
-      for (var sub in subjects) {
+      List list = subjects['subjects'];
+      for (var sub in list) {
         movies.add(MovieItem.fromMap(sub));
       }
-      print('=========== $movies.first.title');
     });
 
   }
 
-
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: 30,//movies.length
+      itemCount: movies.length,//movies.length
       itemBuilder: (ctx, index){
-        return ListTile(title: Text('item$index'),);
+        return CFHomeMovieItem(movie: movies[index],);
       },
     );
   }

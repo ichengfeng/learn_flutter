@@ -4,7 +4,7 @@ class Person {
 
   Person.fromMap(Map<String, dynamic> json) {
     name = json["name"];
-    avatarURL = json["avatars"]["medium"];
+    avatarURL = json["avatar"];
   }
 }
 
@@ -26,25 +26,28 @@ class MovieItem {
   double? rating;
   List<String>? genres;
   List<Actor>? casts;
-  Director? director;
+  List<Director>? directors;
   String? originalTitle;
 
   MovieItem.fromMap(Map<String, dynamic> json) {
     rank = counter++;
-    imageURL = json["images"]["medium"];
+    imageURL = json["image"];
     title = json["title"];
-    playDate = json["year"];
+    playDate = json["playdate"];
     rating = json["rating"]["average"];
-    genres = json["genres"].cast<String>();
+    genres = json["generes"].cast<String>();
     casts = (json["casts"] as List<dynamic>).map((item) {
       return Actor.fromMap(item);
     }).toList();
-    director = Director.fromMap(json["directors"][0]);
-    originalTitle = json["original_title"];
+    directors = (json["directors"] as List<dynamic>).map((item) {
+      return Director.fromMap(item);
+    }).toList();
+    // Director.fromMap(json["directors"]);
+    originalTitle = json["originality"];
   }
 
   @override
   String toString() {
-    return 'MovieItem{rank: $rank, imageURL: $imageURL, title: $title, playDate: $playDate, rating: $rating, genres: $genres, casts: $casts, director: $director, originalTitle: $originalTitle}';
+    return 'MovieItem{rank: $rank, imageURL: $imageURL, title: $title, playDate: $playDate, rating: $rating, genres: $genres, casts: $casts, director: $directors, originalTitle: $originalTitle}';
   }
 }
