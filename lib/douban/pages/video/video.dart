@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CFSubjectPage extends StatelessWidget {
-  const CFSubjectPage({Key? key}) : super(key: key);
+class CFVideoPage extends StatelessWidget {
+  const CFVideoPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

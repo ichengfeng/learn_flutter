@@ -30,7 +30,7 @@ class CFHomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("豆瓣App"),
       ),
-      body: Center(),
+      body: const Center(),
     );
   }
 }

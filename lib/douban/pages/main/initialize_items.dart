@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:learn_flutter/douban/pages/home/home.dart';
-import 'package:learn_flutter/douban/pages/subject/subject.dart';
+import 'package:learn_flutter/douban/pages/mall/mall.dart';
+import 'package:learn_flutter/douban/pages/mine/mine.dart';
+import 'package:learn_flutter/douban/pages/video/video.dart';
 
 import 'bottom_bar_item.dart';
 
@@ -12,8 +14,8 @@ List<CFBottomBarItem> items = [
 ];
 
 List<Widget> pages = [
-  CFHomePage(),
-  CFSubjectPage(),
-  CFHomePage(),
-  CFHomePage(),
+  const CFHomePage(),
+  const CFVideoPage(),
+  const CFMallPage(),
+  const CFMinePage(),
 ];

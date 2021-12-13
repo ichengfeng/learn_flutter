@@ -8,9 +8,9 @@ class CFHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('首页'),
+        title: const Text('首页'),
       ),
-      body: CFHomeContent(),
+      body: const CFHomeContent(),
     );
   }
 }
