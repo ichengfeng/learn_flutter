@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn_flutter/douban/pages/main/initialize_items.dart';
 
-import 'bottom_bar_item.dart';
-
 class CFMainPage extends StatefulWidget {
   const CFMainPage({Key? key}) : super(key: key);
 

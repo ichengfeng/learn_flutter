@@ -96,7 +96,7 @@ class CFHomeMovieItem extends StatelessWidget {
       TextSpan(
         children: [
           const WidgetSpan(
-            child: Icon(Icons.play_circle_outline, color: Colors.redAccent,),
+            child: Icon(Icons.play_circle_outline, color: Colors.redAccent, size: 24,),
           ),
           TextSpan(
             text: movie!.title,
@@ -168,7 +168,7 @@ class CFHomeMovieItem extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: const Color(0xffe2e2e2),
+        color: const Color(0xfff2f2f2),
         borderRadius: BorderRadius.circular(6),
       ),
       child: Text(
