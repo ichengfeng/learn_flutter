@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn_flutter/douban/model/home_model.dart';
+import 'package:learn_flutter/douban/untils/log.dart';
 import 'package:learn_flutter/douban/widgets/dashed_line.dart';
 import 'package:learn_flutter/douban/widgets/start_rating.dart';
 
@@ -56,12 +57,20 @@ class CFHomeMovieItem extends StatelessWidget {
       children: <Widget>[
         buildContentImage(),
         const SizedBox(width: 8,),
-        buildContentInfo(),
-        const SizedBox(width: 8,),
-        buildContentLine(),
-        const SizedBox(width: 8,),
-        buildContentWish(),
-        const SizedBox(width: 8,),
+        Expanded(
+          child: IntrinsicHeight(
+            child: Row(
+              children: <Widget>[
+                buildContentInfo(),
+                const SizedBox(width: 8,),
+                buildContentLine(),
+                const SizedBox(width: 8,),
+                buildContentWish(),
+                const SizedBox(width: 8,),
+              ],
+            ),
+          ),
+        ),
       ],
     );
   }
@@ -97,14 +106,24 @@ class CFHomeMovieItem extends StatelessWidget {
         children: [
           const WidgetSpan(
             child: Icon(Icons.play_circle_outline, color: Colors.redAccent, size: 24,),
+            baseline: TextBaseline.ideographic,
+            alignment: PlaceholderAlignment.middle
           ),
-          TextSpan(
-            text: movie!.title,
-            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          TextSpan(
-            text: "(${movie!.playDate})",
-            style: const TextStyle(fontSize: 18, color: Colors.grey),
+          ...movie!.title!.runes.map((rune) {
+            return WidgetSpan(
+              child: Text(
+                String.fromCharCode(rune),
+                style: const TextStyle(fontSize: 20, fontWeight:FontWeight.bold,),
+              ),
+              alignment: PlaceholderAlignment.middle,
+            );
+          }),
+          WidgetSpan(
+            child: Text(
+              "(${movie!.playDate})",
+              style: const TextStyle(fontSize: 14, color: Colors.grey),
+            ),
+            alignment: PlaceholderAlignment.middle,
           )
         ],
       ),
