@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:dio/dio.dart';
-import 'package:learn_flutter/service/network.dart';
+import 'package:learn_flutter/douban/untils/log.dart';
 
 main() => runApp(const MyApp());
 
@@ -11,56 +10,48 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(primarySwatch: Colors.blue, splashColor: Colors.transparent,),
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        splashColor: Colors.transparent,
+      ),
       home: const CFHomeContent(),
     );
   }
 }
 
-
-class CFHomeContent extends StatefulWidget {
+class CFHomeContent extends StatelessWidget {
   const CFHomeContent({Key? key}) : super(key: key);
 
   @override
-  _CFHomeContentState createState() => _CFHomeContentState();
-}
-
-class _CFHomeContentState extends State<CFHomeContent> {
-
-  @override
-  void initState() {
-    super.initState();
-
-    HttpRequest.request("https://httpbin.org/get", params: {'name':'野猪佩奇'}).then((value) {
-      print('network === >>> $value');
-    });
-
-  }
-
-  void getTest() {
-    final dio = Dio();
-    dio.get('https://httpbin.org/get').then((value) {
-      print('get === >>> \n $value');
-    }).catchError((err){
-      print(err);
-    }).whenComplete(() {
-      print('完成');
-    });
-  }
-
-  void postTest() {
-    final dio = Dio();
-    dio.post('https://httpbin.org/post').then((value) {
-      print('post === >>> $value');
-    }).catchError((err){
-      print(err);
-    }).whenComplete(() {
-      print('完成');
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("列表测试"),
+      ),
+      body: ListView.builder(itemBuilder: (ctx, index) {
+        return ListTile(
+          title: GestureDetector(
+            child: Row(
+              children: <Widget>[
+                Flexible(
+                  child: Container(
+                    color: Colors.lightBlue,
+                    alignment: Alignment.centerLeft,
+                    height: 80,
+                    child: Text(
+                      'item=${index}',
+                      style: TextStyle(color: Colors.red),
+                    ),
+                  ),
+                )
+              ],
+            ),
+            onTap: () {
+              printf('${index} 999999 ===', StackTrace.current);
+            },
+          ),
+        );
+      }),
+    );
   }
 }

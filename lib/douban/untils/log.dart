@@ -1,6 +1,7 @@
-void cfLog(Object message, StackTrace current) {
+void printf(Object message, StackTrace current) {
   CFCustomTrace programInfo = CFCustomTrace(current);
-  print('所在文件：${programInfo.fileName},所在行：${programInfo.lineNumber},所在列：${programInfo.columnNumber}');
+  print(
+      '所在文件：${programInfo.fileName},所在行：${programInfo.lineNumber},所在列：${programInfo.columnNumber}');
   print(message);
 }
 
@@ -24,8 +25,7 @@ class CFCustomTrace {
     fileName = listOfInfos[0];
     lineNumber = int.parse(listOfInfos[1]);
     var columnStr = listOfInfos[2];
-    columnStr = columnStr.replaceFirst(')',"");
+    columnStr = columnStr.replaceFirst(')', "");
     columnNumber = int.parse(columnStr);
   }
-
 }
