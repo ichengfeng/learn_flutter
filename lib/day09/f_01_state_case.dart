@@ -102,7 +102,7 @@ class _CFShowData01State extends State<CFShowData01> {
 
     return Card(
       color: Colors.red,
-      child: Text('当前计数：$counter',style: TextStyle(fontSize: 30),),
+      child: Text('当前计数：$counter',style: const TextStyle(fontSize: 30),),
     );
   }
 }
