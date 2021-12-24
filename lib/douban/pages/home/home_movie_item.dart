@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:learn_flutter/douban/model/home_model.dart';
-import 'package:learn_flutter/douban/untils/log.dart';
 import 'package:learn_flutter/douban/widgets/dashed_line.dart';
 import 'package:learn_flutter/douban/widgets/start_rating.dart';
 
@@ -131,12 +130,14 @@ class CFHomeMovieItem extends StatelessWidget {
   }
 
   Widget buildContentInfoRate() {
-    return Row(
-      children: <Widget>[
-        CFStartRating(rating: movie!.rating ?? 0, size:20,),
-        const SizedBox(width: 6,),
-        Text('${movie!.rating}', style: const TextStyle(fontSize: 16),),
-      ],
+    return FittedBox(
+      child: Row(
+        children: <Widget>[
+          CFStartRating(rating: movie!.rating ?? 0, size:20,),
+          const SizedBox(width: 6,),
+          Text('${movie!.rating}', style: const TextStyle(fontSize: 16),),
+        ],
+      ),
     );
   }
 
