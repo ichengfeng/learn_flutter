@@ -31,6 +31,22 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.orange,
         //4、accentColor: 单独设置FloatingActionButton的颜色
         accentColor: Colors.green,
+        //5、Button的主题
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(Colors.yellow),
+          ),
+        ),
+        //6、Card的主题
+        cardTheme: const CardTheme(
+          color: Colors.pink,
+          elevation: 10,
+        ),
+        //7、Text的主题
+        textTheme: const TextTheme(
+          bodyText1: TextStyle(fontSize: 16),
+          bodyText2: TextStyle(fontSize: 20),
+        ),
       ),
       home: const CFHomePage(),
     );
@@ -51,8 +67,16 @@ class CFHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text('Hello World'),
+            const Text('Hello World',style: TextStyle(fontSize: 14),),
+            const Text('Hello World',style: TextStyle(fontSize: 20),),
+            Text('Hello World',style: Theme.of(context).textTheme.bodyText2,),
+            Text('Hello World',style: Theme.of(context).textTheme.headline3,),
             Switch(value: true, onChanged: (value){}),
             CupertinoSwitch(value: true, onChanged: (value){}),
+            ElevatedButton(onPressed: (){}, child: const Text("E"),),
+            const Card(
+              child: Text('你好啊',style: TextStyle(fontSize: 30),),
+            ),
           ],
         ),
       ),
