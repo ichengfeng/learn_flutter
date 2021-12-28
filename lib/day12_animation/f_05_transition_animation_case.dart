@@ -67,20 +67,20 @@ class CFHomePage extends StatelessWidget {
 
   void pageRouteBuilder(BuildContext context) {
     Navigator.of(context).push(PageRouteBuilder(
-      transitionDuration: const Duration(seconds: 2),
-      pageBuilder: (ctx, animation1,animation2){
-        return FadeTransition(
-          opacity: animation1,
-          child: const CFModelPage(),
-        );
-      }),
+        transitionDuration: const Duration(seconds: 2),
+        pageBuilder: (ctx, animation1,animation2){
+          return FadeTransition(
+            opacity: animation1,
+            child: const CFModelPage(),
+          );
+        }),
     );
   }
 
   ///跳转到图片详情页
   void jumpToImageDetailPage(BuildContext context, String imageUrl) {
     Navigator.of(context).push(PageRouteBuilder(
-        // transitionDuration: const Duration(seconds: 1),
+      // transitionDuration: const Duration(seconds: 1),
         pageBuilder: (ctx, animation1,animation2){
           return FadeTransition(
             opacity: animation1,
