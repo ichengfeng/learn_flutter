@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_flutter/day11_router/unknown.dart';
 import '../day11_router/main.dart';
 import '../day11_router/about.dart';
 import '../day11_router/detail.dart';
@@ -19,6 +20,14 @@ class CFRouter {
         });
       }
       return null;
+    };
+  }
+
+  static RouteFactory unknownRoute() {
+    return (settings) {
+      return MaterialPageRoute(builder: (ctx) {
+        return const CFUnknownPage();
+      });
     };
   }
   // static final RouteFactory generateRoute = (settings) {

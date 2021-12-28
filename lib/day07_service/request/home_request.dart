@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:learn_flutter/douban/model/home_model.dart';
-import 'package:learn_flutter/service/config.dart';
-import 'package:learn_flutter/service/network.dart';
+import 'package:learn_flutter/day07_service/config.dart';
+import 'package:learn_flutter/day07_service/network.dart';
 
 class HomeRequest {
 

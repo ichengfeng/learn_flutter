@@ -18,11 +18,7 @@ class MyApp extends StatelessWidget {
       // home: const CFHomePage(),
       initialRoute: CFRouter.initialRoute,
       onGenerateRoute: CFRouter.generateRoute(),
-      onUnknownRoute: (settings) {
-        return MaterialPageRoute(builder: (ctx) {
-          return const CFUnknownPage();
-        });
-      },
+      onUnknownRoute: CFRouter.unknownRoute(),
     );
   }
 }

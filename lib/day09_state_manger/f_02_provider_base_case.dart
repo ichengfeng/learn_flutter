@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learn_flutter/day09/viewmodel/counter_view_model.dart';
+import 'package:learn_flutter/day09_state_manger/viewmodel/counter_view_model.dart';
 import 'package:provider/provider.dart';
 
 // main() => runApp(const MyApp());

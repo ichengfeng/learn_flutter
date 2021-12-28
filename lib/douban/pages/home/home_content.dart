@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:learn_flutter/douban/model/home_model.dart';
 import 'package:learn_flutter/douban/pages/home/home_movie_item.dart';
-import 'package:learn_flutter/service/request/home_request.dart';
+import 'package:learn_flutter/day07_service/request/home_request.dart';
 
 class CFHomeContent extends StatefulWidget {
   const CFHomeContent({Key? key}) : super(key: key);

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:learn_flutter/day09/model/user_info.dart';
-import 'package:learn_flutter/day09/viewmodel/counter_view_model.dart';
-import 'package:learn_flutter/day09/viewmodel/provides_list/initialize_providers.dart';
-import 'package:learn_flutter/day09/viewmodel/user_view_model.dart';
+import 'package:learn_flutter/day09_state_manger/model/user_info.dart';
+import 'package:learn_flutter/day09_state_manger/viewmodel/counter_view_model.dart';
+import 'package:learn_flutter/day09_state_manger/viewmodel/provides_list/initialize_providers.dart';
+import 'package:learn_flutter/day09_state_manger/viewmodel/user_view_model.dart';
 import 'package:learn_flutter/douban/model/home_model.dart';
 import 'package:provider/provider.dart';
 
