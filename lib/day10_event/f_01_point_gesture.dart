@@ -81,9 +81,6 @@ class GestureDetectorTest extends StatelessWidget {
       onLongPress: (){
         print('长按');
       },
-      onLongPressCancel: (){
-        print('长按取消');
-      },
       onTapCancel: (){
         print('点击取消');
       },
