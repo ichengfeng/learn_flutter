@@ -30,7 +30,7 @@ class Screen {
     //5、计算rpx的大小
     rpx = screenWidth/standardSize;
 
-    double px = rpx*2.0;
+    double px =  screenWidth / standardSize * 2;
   }
 
   static double setRpx(double size) {
@@ -43,7 +43,7 @@ class Screen {
 
 }
 
-extension NumExtension on double {
+extension DoubleExtension on double {
   double get rpx => Screen.rpx * this;
   double get px => Screen.px * this;
 }
