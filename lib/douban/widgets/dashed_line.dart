@@ -67,7 +67,7 @@ class CFDashedLine extends StatelessWidget {
   final int count;
   final Color color;
 
-  CFDashedLine({
+  const CFDashedLine({
     this.axis = Axis.horizontal,
     this.dashedWidth = 1,
     this.dashedHeight = 1,

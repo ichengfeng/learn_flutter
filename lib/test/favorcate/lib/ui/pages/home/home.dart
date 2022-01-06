@@ -8,6 +8,7 @@ class CFHomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: const Text('美食广场'),
       ),
       body: const CFHomeContent(),
