@@ -1,7 +1,10 @@
 import 'package:favorcate/core/model/meal_model.dart';
+import 'package:favorcate/core/viewmodel/favor_view_model.dart';
+import 'package:favorcate/ui/pages/detail/detail.dart';
 import 'package:favorcate/ui/shared/screen_size.dart';
 import 'package:favorcate/ui/widgets/operation_item.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CFMealItem extends StatelessWidget {
   final MealModel _meal;
@@ -9,16 +12,21 @@ class CFMealItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: EdgeInsets.all(10.px),
-      elevation: 5,///阴影
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.px)),
-      child: Column(
-        children: [
-          buildBasicInfo(context),
-          buildOperationInfo(),
-        ],
+    return GestureDetector(
+      child: Card(
+        margin: EdgeInsets.all(10.px),
+        elevation: 5,///阴影
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.px)),
+        child: Column(
+          children: [
+            buildBasicInfo(context),
+            buildOperationInfo(),
+          ],
+        ),
       ),
+      onTap: (){
+        Navigator.of(context).pushNamed(CFDetailScreen.routeName,arguments: _meal);
+      },
     );
   }
 
@@ -51,13 +59,33 @@ class CFMealItem extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(16.px),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          CFOperationItem(const Icon(Icons.access_time), "${_meal.duration}分钟"),
-          CFOperationItem(const Icon(Icons.restaurant), _meal.complex),
-          const CFOperationItem(Icon(Icons.favorite_outline), "未收藏"),
+          CFOperationItem(icon: const Icon(Icons.access_time), title: "${_meal.duration}分钟"),
+          CFOperationItem(icon: const Icon(Icons.restaurant), title: _meal.complex),
+          buildFavorItem(),
         ],
       ),
     );
   }
+
+  Widget buildFavorItem() {
+
+    return  Consumer<CFFavorViewModel>(builder: (ctx, favorVM, child){
+      final iconData = favorVM.isFavor(_meal) ? Icons.favorite : Icons.favorite_border;
+      final favorColor = favorVM.isFavor(_meal) ? Colors.red : Colors.black;
+      final title = favorVM.isFavor(_meal) ? "收藏" : "未收藏";
+      return GestureDetector(
+        child: CFOperationItem(
+          icon: Icon(iconData, color: favorColor,),
+          title: title,
+          titleColor: favorColor,
+        ),
+        onTap: (){
+          favorVM.handleMeal(_meal);
+        },
+      );
+    });
+  }
+
 }

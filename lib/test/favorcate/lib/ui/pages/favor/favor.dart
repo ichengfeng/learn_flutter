@@ -1,3 +1,4 @@
+import 'package:favorcate/ui/pages/favor/favor_content.dart';
 import 'package:flutter/material.dart';
 
 class CFFavorScreen extends StatelessWidget {
@@ -12,13 +13,7 @@ class CFFavorScreen extends StatelessWidget {
         title: const Text('收藏'),
       ),
       body: const Center(
-        child: Text('收藏',
-          style: TextStyle(
-            fontSize: 30,
-            decoration: TextDecoration.underline,
-            decorationStyle: TextDecorationStyle.wavy,
-          ),
-        ),
+        child: CFFavorContent(),
       ),
     );
   }

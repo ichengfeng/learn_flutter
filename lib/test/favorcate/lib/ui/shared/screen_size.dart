@@ -6,6 +6,7 @@ class Screen {
   static double screenWidth = 0;
   static double screenHeight = 0;
   static double statusHeight = 0;
+  static double bottomHeight = 0;
   static double dpr = 1;
   static double rpx = 1;
   static double px = 1;
@@ -25,6 +26,7 @@ class Screen {
 
     //4、状态栏高度
     statusHeight = window.padding.top/dpr;
+    bottomHeight = window.padding.bottom/dpr;
 
     //5、计算rpx的大小
     rpx = screenWidth/standardSize;

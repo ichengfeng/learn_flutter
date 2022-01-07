@@ -3,23 +3,31 @@ import 'package:flutter/material.dart';
 
 class CFOperationItem extends StatelessWidget {
 
-  const CFOperationItem(
-      this._icon,
-      this._title,
-      {Key? key}
-      ) : super(key: key);
+  const CFOperationItem({
+    Key? key,
+    this.titleColor = Colors.black,
+    required this.icon,
+    required this.title
+  }) : super(key: key);
 
-  final Widget _icon;
-  final String _title;
+  final Widget icon;
+  final String title;
+  final Color? titleColor;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        _icon,
-        SizedBox(width: 3.px,),
-        Text(_title, style: Theme.of(context).textTheme.bodyText2,),
-      ],
+    return Container(
+      color: Colors.white,
+      width: 80.px,
+      padding: EdgeInsets.symmetric(vertical: 12.px),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          icon,
+          SizedBox(width: 3.px,),
+          Text(title, style: TextStyle(color: titleColor),),
+        ],
+      ),
     );
   }
 }
