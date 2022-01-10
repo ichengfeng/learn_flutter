@@ -11,7 +11,7 @@ class CFHomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: CFHomeAppBar(context),
       body: const CFHomeContent(),
-      drawer: const CFHomeDrawer(),
+
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:favorcate/ui/pages/home/home_drawer.dart';
 import 'package:favorcate/ui/pages/main/initialize_items.dart';
 import 'package:favorcate/ui/shared/screen_size.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,7 @@ class _CFMainScreenState extends State<CFMainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const CFHomeDrawer(),
       body: IndexedStack(
         index: _currentIndex,
         children: pages,
