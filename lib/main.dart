@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:itools/screen_size.dart';
+import 'package:itools/log.dart';
 
 main() => runApp(const MyApp());
 
@@ -20,11 +22,16 @@ class CFHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Screen.initialize(standardSize: 750);
+    printf('hello world');
     return Scaffold(
       appBar: AppBar(
         title: const Text("列表测试"),
       ),
-      body: const Text('Hello World'),
+      body: SizedBox(
+        height: 80.px,
+        child: const Text('Hello World'),
+      ),
     );
   }
 }
